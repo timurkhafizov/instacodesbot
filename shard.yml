@@ -5,6 +5,9 @@ dependencies:
   kemal:
     github: sdogruyol/kemal
     version: ~> 0.12.0
+  spec-kemal:
+    github: sdogruyol/spec-kemal
+    branch: master
 
 authors:
   - Timur Khafizov <hangmany@gmail.com>
