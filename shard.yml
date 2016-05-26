@@ -1,7 +1,10 @@
 name: instacodesbot
 version: 0.1.0
 
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+    version: ~> 0.12.0
+
 authors:
   - Timur Khafizov <hangmany@gmail.com>
-
-license: MIT
