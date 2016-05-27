@@ -12,10 +12,9 @@ module Instacodesbot
       end
 
       cmd "code" do |message|
-        base64 = Instacodesbot::ImageResolver.resolve("ruby", message.text.to_s)
+        image_path = Instacodesbot::ImageResolver.resolve("ruby", message.text.to_s)
 
-        logger.debug("Resolving base64 for #{message.text}")
-        send_message(message.chat.id, base64.to_s)
+        send_photo(message.chat.id, File.open(image_path.to_s))
       end
     end
   end
