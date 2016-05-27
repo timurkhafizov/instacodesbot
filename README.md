@@ -1,16 +1,12 @@
 # instacodesbot
 
-TODO: Write a description here
+Simple Telegram bot written on Crystal. It makes image from your code using http://instacod.es 
 
 ## Installation
 
-
-TODO: Write installation instructions here
-
+1. Copy ENV config file `cp config/env.yml.example config/env.yml` and update your token
 
 ## Usage
-
-
 
 TODO: Write usage instructions here
 
