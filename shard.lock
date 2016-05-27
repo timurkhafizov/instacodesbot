@@ -4,7 +4,3 @@ shards:
     github: hangyas/TelegramBot
     commit: 1876915cf0668431148dd723ef5a4c38dd4261eb
 
-  ambience:
-    github: vjdhama/ambience
-    version: 0.4.1
-

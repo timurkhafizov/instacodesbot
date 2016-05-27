@@ -3,4 +3,3 @@
 /.crystal/
 /.shards/
 ./instacodesbot
-./config/env.yml
