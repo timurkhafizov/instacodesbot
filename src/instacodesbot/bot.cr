@@ -15,7 +15,7 @@ module Instacodesbot
 
       cmd "code" do |message|
         spawn do
-          image_path = Instacodesbot::ImageResolver.resolve("ruby", message.text.to_s)
+          image_path = Instacodesbot::ImageResolver.new("ruby", message.text.to_s).to_image_path
 
           send_photo(message.chat.id, File.open(image_path.to_s))
         end

@@ -6,12 +6,6 @@ module Instacodesbot
 
     @base64 = String.new
 
-    def self.resolve(lang : String = nil, code : String = nil)
-      return if lang.nil? || code.nil?
-
-      self.new(lang: lang, code: code).image_file
-    end
-
     def initialize(lang : String, code : String)
       @lang = lang
       @code = code
@@ -25,18 +19,24 @@ module Instacodesbot
       ).body
     end
 
-    def image_file : String
-      tempfile_name = Crypto::MD5.hex_digest(@code)
+    def to_image_path : String
+      convert_base64_to_png
 
-      base64_tempfile_path = [Tempfile.dirname, File::SEPARATOR, tempfile_name, ".txt"].join
-      File.open(base64_tempfile_path, "w") do |f|
-        f.print("data:image/png;base64,#{base64}")
-      end
+      tempfile_path("png")
+    end
 
-      image_tempfile_path = [Tempfile.dirname, File::SEPARATOR, tempfile_name, ".png"].join
+    protected def tempfile_path(file_format : String) : String
+      [Tempfile.dirname, File::SEPARATOR, tempfile_name, ".", file_format].join
+    end
 
-      Process.run("convert 'inline:#{base64_tempfile_path}' #{image_tempfile_path}", shell: true)
-      image_tempfile_path
+    protected def tempfile_name : String
+      @tempfile_name ||= Crypto::MD5.hex_digest(@code)
+    end
+
+    private def convert_base64_to_png
+      File.open(tempfile_path("txt"), "w") { |f| f.print("data:image/png;base64,#{base64}") }
+      Process.run "convert 'inline:#{tempfile_path("txt")}' #{tempfile_path("png")}", shell: true
+      File.delete tempfile_path("txt")
     end
   end
 end
