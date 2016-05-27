@@ -1,2 +1,1 @@
 require "./instacodesbot/*"
-require "./webhook"

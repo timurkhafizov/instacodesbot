@@ -2,11 +2,8 @@ name: instacodesbot
 version: 0.1.0
 
 dependencies:
-  kemal:
-    github: sdogruyol/kemal
-    version: ~> 0.12.0
-  spec-kemal:
-    github: sdogruyol/spec-kemal
+  TelegramBot:
+    github: hangyas/TelegramBot
     branch: master
 
 authors:

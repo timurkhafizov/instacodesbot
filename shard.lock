@@ -1,18 +1,6 @@
 version: 1.0
 shards:
-  kemal:
-    github: sdogruyol/kemal
-    version: 0.12.0
-
-  kilt:
-    github: jeromegn/kilt
-    version: 0.3.3
-
-  radix:
-    github: luislavena/radix
-    version: 0.3.0
-
-  spec-kemal:
-    github: sdogruyol/spec-kemal
-    commit: 8c0d4268b9ae2b8e7aadfe290006c28060bb61c8
+  TelegramBot:
+    github: hangyas/TelegramBot
+    commit: 1876915cf0668431148dd723ef5a4c38dd4261eb
 

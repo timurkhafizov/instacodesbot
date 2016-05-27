@@ -1,2 +1,2 @@
-require "spec-kemal"
+require "spec"
 require "../src/instacodesbot"
