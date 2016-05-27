@@ -6,5 +6,9 @@ dependencies:
     github: hangyas/TelegramBot
     branch: master
 
+  ambience:
+    github: vjdhama/ambience
+    version: 0.4.1
+
 authors:
   - Timur Khafizov <hangmany@gmail.com>
