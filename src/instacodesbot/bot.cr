@@ -12,13 +12,14 @@ module Instacodesbot
           send_message message.chat.id, "Use /code"
         end
       end
+    end
 
-      cmd "code" do |message|
-        spawn do
-          image_path = Instacodesbot::ImageResolver.new("ruby", message.text.to_s).to_image_path
-
-          send_photo(message.chat.id, File.open(image_path.to_s))
-        end
+    def handle(inline_query : TelegramBot::InlineQuery)
+      spawn do
+        results = Array(TelegramBot::InlineQueryResult).new
+        results << TelegramBot::InlineQueryResultPhoto.new(
+          "1", "http://loremflickr.com/640/480?random=1", "http://loremflickr.com/320/240?random=1")
+        answer_inline_query(inline_query.id, results)
       end
     end
   end
